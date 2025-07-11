@@ -7,6 +7,7 @@ from playwright.async_api import async_playwright, expect
 load_dotenv()
 USERNAME = os.getenv("USERNAME")
 PASSWORD = os.getenv("PASSWORD")
+URL = os.getenv("URL")
 
 if not USERNAME or not PASSWORD:
     print("Error: WEBSITE_USERNAME and WEBSITE_PASSWORD must be set in the.env file.")
