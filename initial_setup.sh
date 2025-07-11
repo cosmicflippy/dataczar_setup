@@ -9,15 +9,15 @@ python3 -m venv venv
 source venv/bin/activate
 
 pip install playwright
-playwright install
-
 pip install python-dotenv
 
+playwright install
+
 curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
-
 curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/dataczar.service -o dataczar.service
-
 curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env.sample -o .env
+
+echo "Enabling the dataczar service to run on boot..."
 
 mv dataczar.service /etc/systemd/system/dataczar.service
 sudo systemctl daemon-reload
