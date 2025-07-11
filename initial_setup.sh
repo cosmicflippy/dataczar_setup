@@ -11,8 +11,8 @@ source venv/bin/activate
 pip install playwright
 pip install python-dotenv
 
-playwright install-deps
 playwright install
+playwright install-deps
 
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/dataczar.service -o dataczar.service
