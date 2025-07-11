@@ -16,9 +16,14 @@ playwright install
 
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/dataczar.service -o dataczar.service
-sudo curl -sSL "https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env.sample" -o .env
 
-mv .env.sample .env
+echo "Setting up the .env file..."
+if [ ! -f .env ]; then
+    echo "Creating .env file from sample..."
+    sudo curl -sSL "https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env.sample" -o .env
+else
+    echo ".env file already exists. Please edit it as needed."
+fi
 
 echo "Enabling the dataczar service to run on boot..."
 
