@@ -11,4 +11,6 @@ source venv/bin/activate
 pip install playwright
 playwright install
 
-curl -sSL https://
+pip install python-dotenv
+
+python3 main.py

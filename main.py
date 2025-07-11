@@ -5,8 +5,12 @@ from dotenv import load_dotenv
 from playwright.async_api import async_playwright, expect
 
 load_dotenv()
-USERNAME = "portal@canopi.studio"
-PASSWORD = "displayDonkey-0"
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PASSWORD")
+
+if not USERNAME or not PASSWORD:
+    print("Error: WEBSITE_USERNAME and WEBSITE_PASSWORD must be set in the.env file.")
+    exit(1)
 
 async def main():
     """
