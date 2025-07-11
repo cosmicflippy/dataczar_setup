@@ -15,4 +15,4 @@ pip install python-dotenv
 
 curl https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
 
-python3 main.py
+sudo reboot
