@@ -12,10 +12,11 @@ pip install playwright
 pip install python-dotenv
 
 playwright install
+playwright install-deps
 
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/dataczar.service -o dataczar.service
-sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env.sample -O .env
+sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env.sample -o .env
 
 echo "Enabling the dataczar service to run on boot..."
 
