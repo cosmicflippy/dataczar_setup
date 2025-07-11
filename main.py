@@ -10,7 +10,7 @@ PASSWORD = os.getenv("PASSWORD")
 URL = os.getenv("URL")
 
 if not USERNAME or not PASSWORD:
-    print("Error: WEBSITE_USERNAME and WEBSITE_PASSWORD must be set in the.env file.")
+    print("Error: USERNAME, PASSWORD, and URL must be set in the .env file.")
     exit(1)
 
 async def main():
