@@ -17,6 +17,8 @@ curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/hea
 
 curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/dataczar.service -o dataczar.service
 
+curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env.sample -o .env
+
 mv dataczar.service /etc/systemd/system/dataczar.service
 sudo systemctl daemon-reload
 sudo systemctl enable dataczar.service
