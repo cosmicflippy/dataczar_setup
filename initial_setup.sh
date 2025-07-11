@@ -13,4 +13,6 @@ playwright install
 
 pip install python-dotenv
 
+curl https://raw.githubusercontent.com/kaihickey/dataczar_setup/main/main.py -o main.py
+
 python3 main.py
