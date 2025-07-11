@@ -13,6 +13,12 @@ playwright install
 
 pip install python-dotenv
 
-curl https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
+curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
 
-sudo reboot
+curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/dataczar.service -o dataczar.service
+
+mv dataczar.service /etc/systemd/system/dataczar.service
+sudo systemctl daemon-reload
+sudo systemctl enable dataczar.service
+
+echo "Please set your environment variables in the .env file, then reboot your device."
