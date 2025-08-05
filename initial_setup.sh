@@ -14,13 +14,14 @@ source venv/bin/activate
 
 pip install playwright
 pip install python-dotenv
+pip install dbus-python
 
 playwright install
 playwright install-deps
 
 echo "Grabbing setup files..."
 
-sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/head/main/gnome-randr.py -o gnome-randr.py
+sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/gnome-randr.py -o gnome-randr.py
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/director.sh -o director.sh
 
@@ -36,6 +37,6 @@ fi
 
 chmod +x gnome-randr.py
 
-(crontab -l 2>/dev/null; echo "*/5 * * * * ~/dataczar/director.sh -with args") | crontab -
+(crontab -l 2>/dev/null; echo "*/5 * * * * ~/dataczar/director.sh") | crontab -
 
 echo "Please set your environment variables in the .env file, then reboot your device."
