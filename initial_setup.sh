@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/bash
+
+set -e
+
 sudo apt update -y
 sudo apt full-upgrade -y
 sudo apt install python3 python3-pip python3-venv -y
@@ -19,8 +22,7 @@ echo "Grabbing setup files..."
 
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/head/main/gnome-randr.py -o gnome-randr.py
 sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
-sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/dataczar.service -o dataczar.service
-sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/rotate.service -o rotate.service
+sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/director.sh -o director.sh
 
 echo "Successfully grabbed files."
 
@@ -32,12 +34,8 @@ else
     echo ".env file already exists. Please edit it as needed."
 fi
 
-echo "Enabling the services to run on boot..."
+chmod +x gnome-randr.py
 
-mv dataczar.service /etc/systemd/system/dataczar.service
-mv rotate.service /etc/systemd/system/rotate.service
-sudo systemctl daemon-reload
-sudo systemctl enable dataczar.service
-sudo systemctl enable rotate.service
+(crontab -l 2>/dev/null; echo "*/5 * * * * ~/dataczar/director.sh -with args") | crontab -
 
 echo "Please set your environment variables in the .env file, then reboot your device."
