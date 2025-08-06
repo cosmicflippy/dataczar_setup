@@ -6,9 +6,9 @@ from playwright.async_api import async_playwright, expect, Playwright
 
 
 load_dotenv()
-USERNAME = "portal@canopi.studio"
-PASSWORD = "displayDonkey-0"
-URL = "https://cnc.churchill-realestate.com/portals/dataCzar/index.php"
+USERNAME = ""
+PASSWORD = ""
+URL = ""
 
 # Check if credentials were loaded correctly
 if not USERNAME or not PASSWORD:
