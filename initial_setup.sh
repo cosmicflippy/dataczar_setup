@@ -1,42 +1,22 @@
-#!/usr/bin/bash
+sudo apt-get update && sudo apt-get upgrade -y
 
-set -e
+sudo apt install cmake scdoc pkg-config checkinstall git
+cd Downloads
 
-sudo apt update -y
-sudo apt full-upgrade -y
-sudo apt install python3 python3-pip python3-venv -y
+git clone https://github.com/ReimuNotMoe/ydotool
+cd ydotool
+mkdir build && cd build
+cmake ..
+make -j `nproc`
 
-mkdir dataczar
-cd dataczar
+echo "Run the command below with the following settings"
+echo "sudo checkinstall --fstrans=no"
+echo "1. y"
+echo "2. enter a description"
+echo "3. press 2 then change the name to ydotool-custom"
+echo "4. n"
+echo "5. y"
 
-python3 -m venv venv
-source venv/bin/activate
+sudo echo "YDOTOOL_SOCKET=/tmp/.ydotool_socket" >> ~/.profile
 
-pip install playwright
-pip install python-dotenv
-pip install dbus-python
-
-playwright install
-playwright install-deps
-
-echo "Grabbing setup files..."
-
-sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/gnome-randr.py -o gnome-randr.py
-sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/main.py -o main.py
-sudo curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/director.sh -o director.sh
-
-echo "Successfully grabbed files."
-
-echo "Setting up the .env file..."
-if [ ! -f .env ]; then
-    echo "Creating .env file from sample..."
-    sudo curl -sSL "https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env.sample" -o .env
-else
-    echo ".env file already exists. Please edit it as needed."
-fi
-
-chmod +x gnome-randr.py
-
-(crontab -l 2>/dev/null; echo "*/5 * * * * ~/dataczar/director.sh") | crontab -
-
-echo "Please set your environment variables in the .env file, then reboot your device."
+echo "Once done with that, log out then log back in, or reboot."
