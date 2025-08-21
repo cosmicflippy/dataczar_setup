@@ -27,6 +27,3 @@ ydotool key 15:1 15:0
 sleep 1
 ydotool key 15:1 15:0
 ydotool key 28:1 28:0 #enter key
-sleep 3
-ydotool key 29:1 12:1 29:0 12:0 # ctrl + - for zooming out
-ydotool key 29:1 12:1 29:0 12:0
