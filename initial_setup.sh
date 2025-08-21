@@ -1,7 +1,8 @@
 #!/bin/sh
 sudo apt-get update && sudo apt-get upgrade -y
 
-curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/kiosk.sh?token=GHSAT0AAAAAADJTHBECIHWGBUT2FFFF7IGW2FGFA7Q -o kiosk.sh
+curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/kiosk.sh -o kiosk.sh
+curl -sSL https://raw.githubusercontent.com/cosmicflippy/dataczar_setup/refs/heads/main/.env -o .env
 
 echo "Finished upgrading. Downloading dependencies..."
 
